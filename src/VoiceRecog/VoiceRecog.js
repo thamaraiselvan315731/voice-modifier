@@ -405,15 +405,22 @@ const VoiceRecog = () => {
   };
 
   return (
-    <div className="microphone-wrapper" style={{textAlign:"center"}}>
-      <div className="microphone-container">
+    <div className="microphone-wrapper" style={{textAlign:"center",marginTop:"15%"}} >
+      <div className="microphone-container" style={{textAlign:"center"}}>
+      <div className="microphone-status">
         <div
-          className="microphone-icon-container"
+         // className="microphone-icon-container"
           ref={microphoneRef}
           style={{textAlign:"center"}}
           onClick={handleListening}
         >
-          <img src={microPhoneIcon} className="microphone-icon" alt="Microphone Icon" style={{textAlign:"center"}} />
+             {!isListening && (
+          <button className="microphone-stop btn" onClick={stopHandle}>
+            Start
+          </button>
+        )}
+          {/* <img src={microPhoneIcon} className="microphone-icon" alt="Microphone Icon" style={{textAlign:"center"}} /> */}
+        </div>
         </div>
         <div className="microphone-status">
           {isListening ? "Listening........." : "Click to start Listening"}
